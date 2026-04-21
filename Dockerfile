@@ -95,6 +95,7 @@ RUN --mount=target=requirements.txt,source=requirements.txt \
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
 COPY --chown=user . $HOME/app
 
+# buat folder bot di files huggingface dan upload file bot bernama "bot.zip" pastikan isi zip bot tidak ada direktori tambahan 
 RUN chmod +x start.sh bot.zip
 
 COPY --chown=user login.html /home/user/miniconda/lib/python3.9/site-packages/jupyter_server/templates/login.html
