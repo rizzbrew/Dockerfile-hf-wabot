@@ -95,7 +95,7 @@ RUN --mount=target=requirements.txt,source=requirements.txt \
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
 COPY --chown=user . $HOME/app
 
-RUN chmod +x start.sh bot
+RUN chmod +x start.sh bot.zip
 
 COPY --chown=user login.html /home/user/miniconda/lib/python3.9/site-packages/jupyter_server/templates/login.html
 
