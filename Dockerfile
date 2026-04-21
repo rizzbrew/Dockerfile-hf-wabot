@@ -97,8 +97,6 @@ COPY --chown=user . $HOME/app
 
 RUN chmod +x start.sh bot
 
-RUN cd bot && npm i && cd $HOME/app
-
 COPY --chown=user login.html /home/user/miniconda/lib/python3.9/site-packages/jupyter_server/templates/login.html
 
 # Set environment variables
