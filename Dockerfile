@@ -35,8 +35,8 @@ RUN add-apt-repository ppa:flexiondotorg/nvtop && \
     apt-get install -y --no-install-recommends nvtop && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set up Node.js 18 and global tools
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+# Set up Node.js 22 and global tools < new nodejs
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get install -y nodejs && \
     npm install -g pm2
 
@@ -95,7 +95,7 @@ RUN --mount=target=requirements.txt,source=requirements.txt \
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
 COPY --chown=user . $HOME/app
 
-RUN chmod +x start_server.sh bot
+RUN chmod +x start.sh bot
 
 RUN cd bot && npm i && cd $HOME/app
 
@@ -111,4 +111,4 @@ ENV PYTHONUNBUFFERED=1 \
     SHELL=/bin/bash
 
 # Default run command
-CMD ["./start_server.sh"]
+CMD ["./start.sh"]
