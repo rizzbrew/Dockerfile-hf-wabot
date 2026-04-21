@@ -22,5 +22,6 @@ jupyter-lab \
 
 # Navigate to the bot directory and start the bot
 cd bot
+unzip bot
 npm install
 npm start
